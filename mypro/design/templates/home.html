@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block place %}
+
+<div class="why">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/why.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">simply amazing places</div>
+					<div class="section_title"><h2>Why choose us?</h2></div>
+				</div>
+			</div>
+			<div class="row why_row">
+{% for i in p %}
+				<!-- Why item -->
+				<div class="col-lg-4 why_col">
+					<div class="why_item">
+						<div class="why_image">
+							<img src="{{i.image.url}}" height="200px" width="100%" alt="">
+							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
+								<img src="{% static 'images/why_1.svg' %}" alt="">
+							</div>
+						</div>
+						<div class="why_content text-center">
+							<div class="why_title">{{i.name}}</div>
+							<div class="why_text">
+								<p>{{i.desc}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+{% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+
+{% block team %}
+	<div class="team">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">simply amazing places</div>
+					<div class="section_title"><h2>Meet the Team</h2></div>
+				</div>
+			</div>
+			<div class="row team_row">
+			{% for i in t %}
+				<!-- Team Item -->
+				<div class="col-xl-3 col-md-6 team_col">
+					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
+						<div class="team_image"><img src="{{i.image.url}}" height="200px" width="100%" alt=""></div>
+						<div class="team_content">
+							<div class="team_title"><a href="#">{{i.name}}</a></div>
+							<div class="team_text">
+								<p>{{i.desc}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endfor %}
+				</div>
+		</div>
+	</div>
+
+{% endblock %}
